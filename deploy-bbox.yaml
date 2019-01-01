@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata: 
+    name: deploy-bbox
+spec:
+    replicas: 2
+    revisionHistoryLimit: 2
+    template:
+       metadata:
+          labels:
+             app: bbox
+       spec:
+          containers:
+          - name: bbox-httpd
+            image: registry.ekinspur.com:5000/bbox-httpd:v0.1

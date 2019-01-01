@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1 
+kind: Deployment
+metadata: 
+   name: deploy-nginx
+spec:
+   replicas: 2
+   revisionHistoryLimit: 2
+   template:
+      metadata: 
+         labels:
+            app: nginx
+      spec:
+         containers:
+         - name: testnginx
+           image: registry.ekinspur.com:5000/nginx:v0.1
